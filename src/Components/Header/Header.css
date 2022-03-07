@@ -1,0 +1,34 @@
+.designHeader{
+    height: 20vh;
+    width: 100vw;
+
+    background-color: lightblue;
+
+    color: black;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.headerButton {
+    width: 25vw;
+    height: 20vh;
+   
+}
+.linksDesign {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+  
+}
+.link{
+    margin-right: 3em;
+    margin-bottom: 1em;
+}
+.link:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
