@@ -1,4 +1,4 @@
-.designHome {
+.designLogin {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,4 +6,35 @@
 
     height: 70vh;
     width: 100vw;
+}
+.loginButton {
+    width: 9em;
+    height: 3em;
+
+    color: white;
+
+    transition: 0.3s;
+    background-color: green;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginButton:hover {
+    transition: 0.3s;
+
+    background-color: greenyellow;
+}
+.space {
+    margin-bottom: 4em;
+}
+
+.designForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    
 }
