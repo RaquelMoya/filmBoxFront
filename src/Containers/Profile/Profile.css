@@ -7,3 +7,7 @@
     height: 74vh;
     width: 100vw;
 }
+p {
+    color:black;
+    font-weight: bold;
+}

@@ -2,10 +2,11 @@ import React, {useState, useEffect} from 'react';
 import Button from '../../Components/Button/Button';
 import axios from 'axios';
 import {checkError} from '../../utilities';
+import {connect} from 'react-redux';
 
 import './Orders.css';
 
-const Orders = () => {
+const Orders = (props) => {
 
     const [newOrder, setNewOrder] = useState({
        movieId: "", userId: "", rentingDate: "", returnDate: "" 
@@ -61,6 +62,8 @@ const registerOrder = async () => {
     }
 
 }
+
+    if(!props.credentials?.token){
     return (
         <div className="designOrders">
             <div className="cardInput">
@@ -80,6 +83,12 @@ const registerOrder = async () => {
         </div>
     )
 
+    }else{
+        <div className="designOrders">
+            Debes loguearte primero</div>
+    }
 }
 
-export default Orders;
+export default connect((state)=>({
+    credentials: state.credentials
+}))(Orders);
