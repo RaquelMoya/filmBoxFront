@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Button from '../../Components/Button/Button';
 import axios from 'axios';
-import {checkError} from '../../utilities';
 import {connect} from 'react-redux';
 
 import './Orders.css';
@@ -14,6 +13,13 @@ const Orders = (props) => {
 });
 
     const [msgError, setMsgError] = useState("");
+
+      //CREAMOS LA CONFIGURACIÓN DEL HEADER QUE SE VA A MANDAR
+      let config = {
+        headers: { Authorization: `Bearer ${props.credentials.token}` }
+    };
+
+
     
     
     //Handler (manejador)
@@ -53,7 +59,7 @@ const registerOrder = async () => {
 
     try {
         
-        let result = await axios.post("http://localhost:3000/orders", body);
+        let result = await axios.post("http://localhost:3000/orders", body, config);
         console.log(result);
         
         
@@ -68,7 +74,7 @@ const registerOrder = async () => {
         <div className="designOrders">
             <div className="cardInput">
                 <input type="text" name="movieId" id="movieId" title="movieId" placeholder="ID pelicula:" autoComplete="off" onChange={(e)=>{inputData(e)}}/>
-                <input type="text" name="userId" id="userId" title="userId" placeholder="ID usuario:" autoComplete="off" onChange={(e)=>{inputData(e)}}/>
+                <input type="text" name="userId" id="userId" title="userId" placeholder="ID usuario" autoComplete="off" onChange={(e)=>{inputData(e)}}/>
                 <input type="date" name="rentingDate" id="rentingDate" title="rentingDate" placeholder="Fecha alquiler" autoComplete="off" onChange={(e)=>{inputData(e)}}/>
                 <input type="date" name="returnDate" id="returnDate" title="returnDate" placeholder="Fecha devolución" autoComplete="off" onChange={(e)=>{inputData(e)}}/>
             </div>
@@ -83,11 +89,7 @@ const registerOrder = async () => {
         </div>
     )
 
-    }else{
-        <div className="designOrders">
-            Debes loguearte primero</div>
-    }
-}
+}};
 
 export default connect((state)=>({
     credentials: state.credentials

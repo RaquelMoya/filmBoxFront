@@ -14,7 +14,7 @@ const Login = (props) => {
 
     let navigate = useNavigate();
 
-    //1-Hooks (equivalen al estado en los componentes de clase)
+    //Hooks
     const [datosUsuario, setDatosUsuario] = useState({email: "", password: ""});
     const [msgError, setMsgError] = useState("");
     const [msgError2, setMsgError2] = useState("");
@@ -23,9 +23,7 @@ const Login = (props) => {
 
     //Funciones handlers
     const rellenarDatos = (e) => {
-        //Funcion handler que setea los datos en el hook...[e.target.name] obtiene 
-        //el nombre de la propiedad a cambiar, e.target.value tiene el valor..ambos
-        //obtienen los datos del evento, que es el hecho de escribir en un input en concreto
+        
         setDatosUsuario({...datosUsuario, [e.target.name]: e.target.value})
     };
 
@@ -35,7 +33,7 @@ const Login = (props) => {
 
         try {
 
-            //Me invento las credenciales
+            //Introducimos las credenciales
             let body = {
                  email: datosUsuario.email,
                  password: datosUsuario.password
@@ -43,12 +41,11 @@ const Login = (props) => {
 
             let resultado = await axios.post("http://localhost:3000/users/login",body);
 
-            //Cambiamos el valor del hook credenciales, por lo tanto se recargará el componente
             if(resultado.data === "Usuario o contraseña inválido"){
                 setMsgError2("Usuario o contraseña inválido")
             }else{
 
-                //Guardaríamos los datos en redux...
+                //Guardamos los datos en redux
 
                 props.dispatch({type:LOGIN, payload: resultado.data});
 
@@ -68,7 +65,7 @@ const Login = (props) => {
         
     };
 
-    //2-Render (lo que pinta en pantalla)
+    //Render 
          
         return(
             

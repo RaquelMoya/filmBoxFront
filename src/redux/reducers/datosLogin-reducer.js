@@ -16,7 +16,7 @@ const datosLoginReducer = (state = initialState, action) => {
             return initialState;
         //MODIFICAMOS LOS DATOS QUE TENEMOS GUARDADOS EN ESTE ESTADO CON LOS VALORES QUE METAMOS POR INPUT EN Perfil.js
         case MODIFY_CREDENTIALS :
-            return {};
+            return {...state, user: action.payload};
         
         default :
             return state
