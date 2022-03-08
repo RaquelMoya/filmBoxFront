@@ -40,6 +40,7 @@ const Header = (props) => {
                     <div className="link" onClick={()=>navegar("/login")}>Login</div>
                     <div className="link" onClick={()=>navegar("/register")}>Register</div>   
                     <div className="link"onClick={()=>navegar("/")}>Home</div> 
+                    <div className="link"onClick={()=>navegar("/movies")}>Movies</div> 
                 </div>
             </div>
         )
@@ -51,7 +52,8 @@ const Header = (props) => {
                 <div className="headerSpace"></div>
                 <div className="headerSpace linksDesign">
                     <div className="link" onClick={()=>navegar("/profile")}>{props.credentials?.user.name}</div>
-                    <div className="link" onClick={()=>logOut()}>Logout</div>    
+                    <div className="link" onClick={()=>logOut()}>Logout</div>  
+                    <div className="link"onClick={()=>navegar("/orders")}>Orders</div>   
                 </div>
             </div>
         )

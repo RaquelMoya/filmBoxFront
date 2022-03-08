@@ -7,6 +7,9 @@ import Footer from './Components/Footer/Footer';
 import Home from './Containers/Home/Home';
 import Login from './Containers/Login/Login';
 import Register from './Containers/Register/Register';
+import Profile from './Containers/Profile/Profile';
+import Movies from './Containers/Movies/Movies';
+import Orders from './Containers/Orders/Orders';
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
+          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/movies" element={<Movies/>}/>
+          <Route path="/orders" element={<Orders/>}/>
         </Routes>
 
         <Footer/>
