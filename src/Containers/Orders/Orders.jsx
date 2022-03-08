@@ -2,11 +2,16 @@ import React, {useState, useEffect} from 'react';
 import Button from '../../Components/Button/Button';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import {GENERATE_ORDER} from '../../redux/types';
 
 import './Orders.css';
 
 const Orders = (props) => {
 
+    let navigate = useNavigate();
+
+    //Hooks
     const [newOrder, setNewOrder] = useState({
        movieId: "", userId: "", rentingDate: "", returnDate: "" 
         
@@ -26,26 +31,19 @@ const Orders = (props) => {
     const inputData = (e) => {
         setNewOrder({...newOrder, 
             [e.target.name]: e.target.value})
-};
-const registerOrder = async () => {
+    };
 
-    //Array de distintos campos
 
- //   setMsgError("");
- //   let error = "";
-//
- //   let arrayFields = Object.entries(newOrder);
-//
- //   for(let element of arrayFields){
- //       error = checkError(element[0],element[1]);
-//
- //       if(error !== "ok"){
- //           setMsgError(error);
- //           return;
- //       };
- //   };
 
-    //2construimos el body
+    useEffect(()=>{
+        if(props.credentials.token === ""){
+            navigate("/");
+        }
+    });
+
+
+    const registerOrder = async () => {
+
 
     let body = {
         movieId: newOrder.movieId,
@@ -54,14 +52,21 @@ const registerOrder = async () => {
         returnDate: newOrder.returnDate        
     }
 
+    let config = {
+        headers: { Authorization: `Bearer ${props.credentials.token}` }
+    };
+
     console.log("le llaman BODY", body);
-    //3 envio de axios
+    // envio de axios
 
     try {
         
         let result = await axios.post("http://localhost:3000/orders", body, config);
         console.log(result);
-        
+        if(result){
+            //Guardamos en redux
+            props.dispatch({type:GENERATE_ORDER, payload: newOrder});
+        }
         
     } catch (error) {
         console.log(error);
@@ -69,7 +74,6 @@ const registerOrder = async () => {
 
 }
 
-    if(!props.credentials?.token){
     return (
         <div className="designOrders">
             <div className="cardInput">
@@ -89,7 +93,7 @@ const registerOrder = async () => {
         </div>
     )
 
-}};
+};
 
 export default connect((state)=>({
     credentials: state.credentials

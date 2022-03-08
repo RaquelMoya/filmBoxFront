@@ -1,4 +1,4 @@
-import {LOGIN, LOGOUT, MODIFY_CREDENTIALS} from '../types';
+import {GENERATE_ORDER, LOGIN, LOGOUT, MODIFY_CREDENTIALS} from '../types';
 
 const initialState = {
     token : '',
@@ -17,6 +17,9 @@ const datosLoginReducer = (state = initialState, action) => {
         //MODIFICAMOS LOS DATOS QUE TENEMOS GUARDADOS EN ESTE ESTADO CON LOS VALORES QUE METAMOS POR INPUT EN Perfil.js
         case MODIFY_CREDENTIALS :
             return {...state, user: action.payload};
+        //GENERAMOS UN NUEVO PEDIDO
+        case GENERATE_ORDER :
+            return{...state, order:action.payload};
         
         default :
             return state
