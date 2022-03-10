@@ -14,7 +14,7 @@ const Profile = (props) => {
 
     //Hooks
     const [dataUser, setDataUser] = useState({
-        name: props.credentials.user.name, surname: props.credentials.user.surname, age: props.credentials.user.age, email: props.credentials.user.email, 
+        id:props.credentials.user.id, name: props.credentials.user.name, surname: props.credentials.user.surname, age: props.credentials.user.age, email: props.credentials.user.email, 
         adress: props.credentials.user.adress,  phone: props.credentials.user.phone, 
         nickname: props.credentials.user.nickname, rol: props.credentials.user.rol
     });

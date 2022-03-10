@@ -32,7 +32,7 @@ const Movies = (props) => {
             setTimeout(()=>{
 
                 setMovies(res.data);
-            },2000);
+            },1500);
 
         } catch (error) {
             console.log(error);
@@ -81,17 +81,7 @@ const Movies = (props) => {
             </div>
         )
     }
-}
-    /*Para mostrar caratulas de peliculas en unas cards, hacer función trae imagen de pelicula por ID para acceder con un onclick
-    , añadir endpoint en backend y base de datos desde the movie db. */
-
-    /*Los endpoints de ver todas las pelis, ver las imagenes y ver una breve descripcion, sin auth ni admin. 
-    Vista detalles de pelicula y orders solo con auth */
-
-    /*Vista orders por id usuario, con auth. Vista all Orders con admin */
-
-    /*Para añadir imagenes, echar abajo mi DB, añadir atributo poster en modelo, seeder y migration, en poster poner la url de una imagen en internet */
-
+};
 
 
 export default connect()(Movies);

@@ -2,7 +2,8 @@ import {GENERATE_ORDER, LOGIN, LOGOUT, MODIFY_CREDENTIALS} from '../types';
 
 const initialState = {
     token : '',
-    usuario : {}
+    user : {},
+    order: []
 };
 
 const datosLoginReducer = (state = initialState, action) => {

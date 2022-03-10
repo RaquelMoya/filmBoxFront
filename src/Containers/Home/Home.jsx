@@ -8,6 +8,7 @@ const Home = () => {
 
     return (
         <div className="designHome">
+            <p>¡Bienvenid@ a Filmbox!</p>
             <Button destiny={"Login"} url={"/login"}/>
             <Button destiny={"Register"} url={"/register"}/>
         </div>

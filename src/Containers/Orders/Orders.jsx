@@ -12,28 +12,16 @@ const Orders = (props) => {
     let navigate = useNavigate();
 
     //Hooks
-    const [newOrder, setNewOrder] = useState({
-       movieId: "", userId: "", rentingDate: "", returnDate: "" 
-        
-});
-
-    const [msgError, setMsgError] = useState("");
+    const [orders, setOrders] = useState([]);
 
       //CREAMOS LA CONFIGURACIÓN DEL HEADER QUE SE VA A MANDAR
       let config = {
         headers: { Authorization: `Bearer ${props.credentials.token}` }
     };
 
-
-    
-    
-    //Handler (manejador)
-    const inputData = (e) => {
-        setNewOrder({...newOrder, 
-            [e.target.name]: e.target.value})
-    };
-
-
+    useEffect(()=>{
+        getOrders();
+    },[]);
 
     useEffect(()=>{
         if(props.credentials.token === ""){
@@ -41,53 +29,46 @@ const Orders = (props) => {
         }
     });
 
+    useEffect(()=>{
+        console.log("vaya, , orders ha cambiado, ", orders);
+    },[orders]);
 
-    const registerOrder = async () => {
+    const getOrders = async () => {
 
+        let id = props.credentials.user.id
 
-    let body = {
-        movieId: newOrder.movieId,
-        userId: newOrder.userId,
-        rentingDate: newOrder.rentingDate,
-        returnDate: newOrder.returnDate        
-    }
+        try {
 
-    let config = {
-        headers: { Authorization: `Bearer ${props.credentials.token}` }
-    };
+            let res = await axios.get(`http://localhost:3000/orders/usuario/${id}`, config);
 
-    console.log("le llaman BODY", body);
-    // envio de axios
+            setTimeout(()=>{
 
-    try {
-        
-        let result = await axios.post("http://localhost:3000/orders", body, config);
-        console.log(result);
-        if(result){
-            //Guardamos en redux
-            props.dispatch({type:GENERATE_ORDER, payload: newOrder});
+                setOrders(res.data);
+                 //Guardamos la pelicula escogida en redux
+                props.dispatch({type:GENERATE_ORDER, payload: orders});
+            },1500);
+
+        } catch (error) {
+            console.log(error);
         }
-        
-    } catch (error) {
-        console.log(error);
-    }
-
-}
+    };
 
     return (
         <div className="designOrders">
-            <div className="cardInput">
-                <input type="text" name="movieId" id="movieId" title="movieId" placeholder="ID pelicula:" autoComplete="off" onChange={(e)=>{inputData(e)}}/>
-                <input type="text" name="userId" id="userId" title="userId" placeholder="ID usuario" autoComplete="off" onChange={(e)=>{inputData(e)}}/>
-                <input type="date" name="rentingDate" id="rentingDate" title="rentingDate" placeholder="Fecha alquiler" autoComplete="off" onChange={(e)=>{inputData(e)}}/>
-                <input type="date" name="returnDate" id="returnDate" title="returnDate" placeholder="Fecha devolución" autoComplete="off" onChange={(e)=>{inputData(e)}}/>
+            <div className="data">
+                <div className="title"> {
+                    //Voy a mapear las películas
+                    orders.map(order => {
+                        
+                        return (
+                           
+                            <div key={order.id}>
+                                {order.title }
+                            </div>
+                        )
+                    })
+                }</div>
             </div>
-            <div className="bottomCardInput">
-                    {msgError}
-                    <div className="buttonNewOrder" onClick={()=>registerOrder()}>
-                        Realizar pedido
-                    </div>
-                </div>
             <Button destiny={"Movies"} url={"/movies"}/>
             <Button destiny={"Profile"} url={"/profile"}/>
         </div>
