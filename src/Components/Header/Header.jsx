@@ -1,17 +1,24 @@
 
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import { LOGOUT } from '../../redux/types';
+import { LOGOUT, MOVIES_TITLE } from '../../redux/types';
 import {connect} from 'react-redux';
+import axios from 'axios';
+import 'antd/dist/antd.css';
+import {
+    Input,
+    Button
+} from 'antd';
 
 import './Header.css';
 
 const Header = (props) => {
 
     let navigate = useNavigate();
+    const [titulo, setTitulo] = useState("");
 
     useEffect(()=>{
-        console.log(props.credentials);
+       // console.log(props.credentials);
     })
 
     const navegar = (lugar) => {
@@ -30,7 +37,29 @@ const Header = (props) => {
             navigate("/");
         },1500);
     }
+    const manejador = (ev) => {
+        setTitulo(ev.target.value);
+    }
 
+    const busquedaPorTitulo = async () => {
+    
+        //Axios que trae resultados....
+
+        try {
+            let resultados = await axios.get(`http://localhost:3000/movies/title/${titulo}`);
+            //Guardo en redux los resultados de las películas
+            console.log("esto es resultados.data", resultados.data)
+            props.dispatch({type: MOVIES_TITLE, payload: resultados.data});
+
+            setTimeout(()=>{
+                navigate("/searchresults");
+            },500);
+
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
     if(!props.credentials?.token){
         return (
             <div className='designHeader'>
@@ -46,8 +75,13 @@ const Header = (props) => {
     }else {
         return (
             <div className='designHeader'>
-                <div className="headerSpace"></div>
-                <div className="headerSpace"></div>
+                
+                <div className="headerSpace searchDesign">
+                <Input.Group compact>
+                        <Input style={{ width: 'calc(100% - 200px)' }} placeholder="Busca una película por título" onChange={(ev)=>manejador(ev)}/>
+                        <Button onClick={()=>busquedaPorTitulo()} type="primary">Go!</Button>
+                    </Input.Group>
+                </div>
                 <div className="headerSpace"></div>
                 <div className="headerSpace linksDesign">
                     <div className="link" onClick={()=>navegar("/profile")}>{props.credentials?.user.name}</div>

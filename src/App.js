@@ -11,6 +11,7 @@ import Profile from './Containers/Profile/Profile';
 import Movies from './Containers/Movies/Movies';
 import Orders from './Containers/Orders/Orders';
 import MovieDetail from './Containers/MovieDetail/MovieDetail';
+import SearchResults from './Containers/SearchResults/SearchResults';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/movies" element={<Movies/>}/>
           <Route path="/orders" element={<Orders/>}/>
           <Route path="/moviedetail" element={<MovieDetail/>}/>
+          <Route path="/searchresults" element={<SearchResults/>}/>
         </Routes>
 
         <Footer/>

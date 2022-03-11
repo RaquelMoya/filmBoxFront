@@ -46,3 +46,11 @@
     font-weight: bold;
     cursor: pointer;
 }
+.searchDesign {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    width: 50vw;
+}

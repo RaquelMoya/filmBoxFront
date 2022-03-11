@@ -25,8 +25,8 @@ const MovieDetail = (props) => {
         return(
             <div className='designFilm'>
                 <div className="filmDetailHalf">
-                    <div className="dataFilm title">{props.search.title}</div>
-                    <div className="dataFilm">{props.search.synopsis}</div>
+                    <div className="dataFilm title">{props.search?.title}</div>
+                    <div className="dataFilm">{props.search?.synopsis}</div>
                     <div className="dataFilm">
                         {
                             //EN CASO DE QUE TOKEN SEA TRUE, SI SE INCLUYE EL ELEMENTO RENT
@@ -43,5 +43,5 @@ const MovieDetail = (props) => {
 
 export default connect((state) => ({
     credentials: state.credentials,
-    search : state.search
+    search : state.search.film
 }))(MovieDetail);

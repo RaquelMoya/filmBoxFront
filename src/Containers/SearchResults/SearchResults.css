@@ -1,0 +1,29 @@
+
+
+.designMovies {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 74vh;
+    width: 100vw;
+}
+
+.designRooster {
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+
+    height: 74vh;
+    width: 100vw;
+    
+    flex-wrap: wrap;
+
+
+}
+.cartel {
+    height: 15em;
+    width: 9em;
+}
