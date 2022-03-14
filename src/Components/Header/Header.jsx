@@ -62,8 +62,13 @@ const Header = (props) => {
     }
     if(!props.credentials?.token){
         return (
-            <div className='designHeader'>
-                <div className="headerSpace"></div>
+            <div className='designHeader'>  
+                <div className="headerSpace searchDesign">
+                <Input.Group compact>
+                        <Input style={{ width: 'calc(100% - 200px)' }} placeholder="Busca una película por título" onChange={(ev)=>manejador(ev)}/>
+                        <Button onClick={()=>busquedaPorTitulo()} type="primary">Go!</Button>
+                    </Input.Group>
+                </div>
                 <div className="headerSpace"></div>
                 <div className="headerSpace linksDesign">
                     <div className="link" onClick={()=>navegar("/login")}>Login</div>

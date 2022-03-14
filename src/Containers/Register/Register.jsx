@@ -114,8 +114,8 @@ const Register = () => {
              
             <div className="cardRegister">
                 <div className="upCardRegister">Formulario de Registro</div>
+                {<pre>{JSON.stringify(dataUser, null,2)}</pre>}
                 <div className="middleCardRegister">
-                    {<pre>{JSON.stringify(dataUser, null,2)}</pre>}
                     <input type="text" name="name" id="name" title="name" placeholder="Nombre:" autoComplete="off" onChange={(e)=>{inputData(e)}}/>
                     <input type="text" name="surname" id="surname" title="surname" placeholder="Apellido:" autoComplete="off" onChange={(e)=>{inputData(e)}}/>
                     <input type="text" name="age" id="age" title="age" placeholder="Edad:" autoComplete="off" onChange={(e)=>{inputData(e)}}/>

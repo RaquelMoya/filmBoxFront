@@ -12,6 +12,8 @@ import Movies from './Containers/Movies/Movies';
 import Orders from './Containers/Orders/Orders';
 import MovieDetail from './Containers/MovieDetail/MovieDetail';
 import SearchResults from './Containers/SearchResults/SearchResults';
+import AdminOrders from './Containers/AdminOrders/AdminOrders';
+import AdminUsers from './Containers/AdminUsers/AdminUsers';
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
           <Route path="/orders" element={<Orders/>}/>
           <Route path="/moviedetail" element={<MovieDetail/>}/>
           <Route path="/searchresults" element={<SearchResults/>}/>
+          <Route path="/adminorders" element={<AdminOrders/>}/>
+          <Route path="/adminusers" element={<AdminUsers/>}/>
         </Routes>
 
         <Footer/>

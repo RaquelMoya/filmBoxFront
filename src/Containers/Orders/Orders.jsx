@@ -52,27 +52,40 @@ const Orders = (props) => {
             console.log(error);
         }
     };
+    
 
-    return (
-        <div className="designOrders">
-            <div className="data">
-                <div className="title"> {
-                    //Voy a mapear las películas
-                    orders.map(order => {
+    if(props.credentials?.user.rol === false){
+     
+        return (
+            <div className="designOrders">
+                <div className="data">
+                    <div className="title"> {
                         
-                        return (
-                           
-                            <div key={order.id}>
-                                {order.title }
-                            </div>
-                        )
-                    })
-                }</div>
+                        orders.map(order => {
+                            
+                            return (
+                               
+                                <div key={order.id}>
+                                    {order.title }
+                                </div>
+                            )
+                        })
+                    }</div>
+                </div>
+                <Button destiny={"Movies"} url={"/movies"}/>
+                <Button destiny={"Profile"} url={"/profile"}/>
             </div>
-            <Button destiny={"Movies"} url={"/movies"}/>
-            <Button destiny={"Profile"} url={"/profile"}/>
-        </div>
-    )
+        )
+    
+    }else{
+        return(
+            <div className="admin">
+                {navigate("/adminorders")}
+            </div>
+            
+        )
+        
+    }
 
 };
 
