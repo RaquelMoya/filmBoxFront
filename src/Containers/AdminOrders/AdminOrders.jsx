@@ -31,7 +31,7 @@ const AdminOrders = (props) => {
      
         try {
 
-            let res = await axios.get(`http://localhost:3000/orders`, config);
+            let res = await axios.get(`http://localhost:3500/orders`, config);
             console.log(res.data);
                 setOrders(res.data);
                 setTimeout(()=>{
@@ -53,7 +53,7 @@ const AdminOrders = (props) => {
      
         try {
 
-        await axios.delete(`http://localhost:3000/orders/${id}`,config);
+        await axios.delete(`http://localhost:3500/orders/${id}`,config);
 
 
         }catch (error){

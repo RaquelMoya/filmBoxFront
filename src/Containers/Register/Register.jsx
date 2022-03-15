@@ -94,7 +94,7 @@ const Register = () => {
 
         try {
             
-            let resultado = await axios.post("http://localhost:3000/users", body);
+            let resultado = await axios.post("http://localhost:3500/users", body);
             console.log(resultado);
             
                 setTimeout(()=>{

@@ -44,7 +44,7 @@ const Rent = (props) => {
 
         try {
 
-            let res = await axios.post("http://localhost:3000/orders",body,config);
+            let res = await axios.post("http://localhost:3500/orders",body,config);
 
             if(res){
                 console.log(res);

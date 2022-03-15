@@ -40,7 +40,8 @@ const Profile = (props) => {
             surname: dataUser.surname,
             email: dataUser.email,
             phone: parseInt(dataUser.phone),
-            adress: dataUser.adress
+            adress: dataUser.adress,
+            nickname: dataUser.nickname
         }
 
         let config = {
@@ -49,7 +50,7 @@ const Profile = (props) => {
 
         try {
             //Hacemos el update en la base de datos
-            let res = await axios.put(`http://localhost:3000/users/${props.credentials.user.id}`,body, config);
+            let res = await axios.put(`http://localhost:3500/users/${props.credentials.user.id}`,body, config);
 
             
             

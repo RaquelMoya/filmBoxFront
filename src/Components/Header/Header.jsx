@@ -35,7 +35,7 @@ const Header = (props) => {
 
         setTimeout(()=>{
             navigate("/");
-        },1500);
+        },1000);
     }
     const manejador = (ev) => {
         setTitulo(ev.target.value);
@@ -46,7 +46,7 @@ const Header = (props) => {
         //Axios que trae resultados....
 
         try {
-            let resultados = await axios.get(`http://localhost:3000/movies/title/${titulo}`);
+            let resultados = await axios.get(`http://localhost:3500/movies/title/${titulo}`);
             //Guardo en redux los resultados de las películas
             console.log("esto es resultados.data", resultados.data)
             props.dispatch({type: MOVIES_TITLE, payload: resultados.data});

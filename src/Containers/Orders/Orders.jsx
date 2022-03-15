@@ -39,7 +39,7 @@ const Orders = (props) => {
 
         try {
 
-            let res = await axios.get(`http://localhost:3000/orders/usuario/${id}`, config);
+            let res = await axios.get(`http://localhost:3500/orders/usuario/${id}`, config);
 
             setTimeout(()=>{
 
@@ -61,11 +61,11 @@ const Orders = (props) => {
                 <div className="data">
                     <div className="title"> {
                         
-                        orders.map(order => {
+                        orders.map((order, index) => {
                             
                             return (
                                
-                                <div key={order.id}>
+                                <div key={index}>
                                     {order.title }
                                 </div>
                             )
