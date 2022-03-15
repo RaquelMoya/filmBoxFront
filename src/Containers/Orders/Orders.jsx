@@ -44,7 +44,7 @@ const Orders = (props) => {
             setTimeout(()=>{
 
                 setOrders(res.data);
-                 //Guardamos la pelicula escogida en redux
+               
                 props.dispatch({type:GENERATE_ORDER, payload: orders});
             },1500);
 

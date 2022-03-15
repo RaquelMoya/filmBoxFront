@@ -2,7 +2,7 @@ import { LOGIN, LOGOUT, MODIFY_CREDENTIALS} from '../types';
 
 const initialState = {
     token : '',
-    user : {},
+    user : {}
 };
 
 const datosLoginReducer = (state = initialState, action) => {

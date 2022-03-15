@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { GENERATE_ORDER, MOVIE_DETAIL } from '../../redux/types';
+import { GENERATE_ORDER } from '../../redux/types';
 
 import './AdminOrders.css';
 
@@ -15,6 +14,7 @@ const AdminOrders = (props) => {
       let config = {
         headers: { Authorization: `Bearer ${props.credentials.token}` }
     };
+      
       
 
 
@@ -31,7 +31,7 @@ const AdminOrders = (props) => {
      
         try {
 
-            let res = await axios.get(`http://localhost:3000/orders/${props.credentials.user.id}`,config);
+            let res = await axios.get(`http://localhost:3000/orders`, config);
             console.log(res.data);
                 setOrders(res.data);
                 setTimeout(()=>{
@@ -47,13 +47,14 @@ const AdminOrders = (props) => {
         }
     };
     const deleteOrder = async () => {
+        let id = orders.id;
+        let body = { id : props.credentials.user.id}
 
      
         try {
 
-        await axios.delete(`http://localhost:3000/orders/deleteAll/${props.credentials.user.id}`, config);
+        await axios.delete(`http://localhost:3000/orders/${id}`,config);
 
-        window.location.reload();
 
         }catch (error){
             console.log(error);
@@ -67,24 +68,32 @@ const AdminOrders = (props) => {
             <div className="field">
                 <div className="data"> {
                     
-                        orders.map(order => {
+                        orders.map((order, index)=> {
                             return(
-                                <div className="delete"key={order.id}>
+                                <div className="delete"key={index}>
                                         <p>USER ID : {order.userId} </p>
                                         <p>MOVIE : {order.title} </p>
                                         <p>MOVIE ID : {order.movieId} </p>
+                                        <div onClick={() => deleteOrder()} className="button1">Delete</div>
                                 </div>)     
                         
                         })
                         
                 }</div>  
-                <div onClick={() => deleteOrder()} className="button1">Delete</div>
+               
             </div>
-        )}
+        )}else{
+            return(
+                <div>Error 401</div>
+            )
+        }
     
  };
 
-
+/*1.- Cómo mostrar titulo de la pelicula pedida en return del map linea 73 AdminOrders
+2.- Cómo hacer logout con perfil admin y que redirija a Home despues de entrar en Orders
+3.- Cómo entrar en perfil admin sin necesidad de params en la url, para evitar los problemas con urls/:id como deleteById 
+4.- Cómo hacer el searchResults mapeando por cada ev*/
 
 
 export default connect((state)=>({
