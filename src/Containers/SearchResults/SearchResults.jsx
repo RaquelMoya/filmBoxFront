@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { MOVIE_DETAIL} from '../../redux/types';
-import axios from 'axios';
 
 import './SearchResults.css';
 
@@ -17,13 +16,9 @@ const SearchResults = (props) => {
 
       
     const escogePelicula = (pelicula) => {
-        
-        console.log(pelicula, "he escogido esta....");
-        //Guardamos la pelicula escogida en redux
+   
         props.dispatch({type:MOVIE_DETAIL, payload: pelicula});
 
-
-        //Redirigimos a movieDetail con navigate
         navigate("/moviedetail");
     }
  
@@ -36,8 +31,7 @@ const SearchResults = (props) => {
             <div className="designRooster">
 
                 {
-                    //Voy a mapear las películas
-                    
+
                     props.pelis.map(pelicula => {
                         
                         return (

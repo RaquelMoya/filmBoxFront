@@ -1,5 +1,5 @@
 
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import { LOGOUT, MOVIES_TITLE } from '../../redux/types';
 import {connect} from 'react-redux';
@@ -17,9 +17,6 @@ const Header = (props) => {
     let navigate = useNavigate();
     const [titulo, setTitulo] = useState("");
 
-    useEffect(()=>{
-       // console.log(props.credentials);
-    })
 
     const navegar = (lugar) => {
 

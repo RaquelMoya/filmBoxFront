@@ -5,6 +5,9 @@
     justify-content: center;
     overflow-y: scroll;
 
+    background-image: url(../../img/backgroundMovies-LAPTOP-JQN2G2SD.jpg);
+    background-size: cover;
+
     height: 74vh;
     width: 100vw;
 }
@@ -15,6 +18,9 @@
     overflow-y: scroll;
     height: 74vh;
     width: 100vw;
+    
+    background-image: url(../../img/backgroundMovies-LAPTOP-JQN2G2SD.jpg);
+    background-size: cover;
 
 
 }

@@ -3,7 +3,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
+    background-image: url(../../img/backgroundHome.jpg);
+    background-size: cover;
     height: 74vh;
     width: 100vw;
 }
@@ -25,6 +26,8 @@
     flex-direction: column;
     justify-content: space-around;
     align-items:center;
+
+    color: orangered;
 
 }
 

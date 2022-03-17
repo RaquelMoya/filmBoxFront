@@ -8,6 +8,8 @@
 
     height: 74vh;
     width: 100vw;
+    background-image: url(../../img/backgroundMovieDetails.jpg);
+    background-size: cover;
 }
 
 

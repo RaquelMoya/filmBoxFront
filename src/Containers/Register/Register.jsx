@@ -19,22 +19,6 @@ const Register = () => {
 
     const [msgError, setMsgError] = useState("");
 
-    //useEffect
-
-    useEffect(()=>{
-        //se ejecuta la primera vez que se ejecuta tan solamente
-    },[]);
-
-    useEffect(()=>{
-        //se ejecuta cada vez que se actualiza CUALQUIER HOOK  
-    })
-
-    // useEffect(()=>{
-    //     //useEffect observable que sólo se ejecutará cuando
-    //     //datosUsuario mute
-    // },
-    // [datosUsuario])
-    
 
     //Handler (manejador)
     const inputData = (e) => {
@@ -47,14 +31,10 @@ const Register = () => {
 
     const registerme = async () => {
 
-        //Array de distintos campos
-
         setMsgError("");
         let error = "";
 
         let arrayFields = Object.entries(dataUser);
-        
-        // //1 comprobación de errores antes de enviar al backend
 
         if(dataUser.password !== dataUser.password2){
 
@@ -73,10 +53,6 @@ const Register = () => {
             };
         };
 
-        console.log("todo ha ido bien")
-
-        //2construimos el body
-
         let body = {
             name: dataUser.name,
             surname: dataUser.surname,
@@ -89,8 +65,6 @@ const Register = () => {
             
         }
 
-        console.log("le llaman BODY", body);
-        //3 envio de axios
 
         try {
             
@@ -108,13 +82,14 @@ const Register = () => {
         }
 
     }
-
+//Para ver en tiempo real lo escrito en inputs
+//{<pre>{JSON.stringify(dataUser, null,2)}</pre>}
     return(
         <div className='designRegister'>
              
             <div className="cardRegister">
                 <div className="upCardRegister">Formulario de Registro</div>
-                {<pre>{JSON.stringify(dataUser, null,2)}</pre>}
+               
                 <div className="middleCardRegister">
                     <input type="text" name="name" id="name" title="name" placeholder="Nombre:" autoComplete="off" onChange={(e)=>{inputData(e)}}/>
                     <input type="text" name="surname" id="surname" title="surname" placeholder="Apellido:" autoComplete="off" onChange={(e)=>{inputData(e)}}/>

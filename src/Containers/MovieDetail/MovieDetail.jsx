@@ -1,5 +1,5 @@
 
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import { connect } from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import Rent from '../../Components/Rent/Rent';
@@ -14,8 +14,7 @@ const MovieDetail = (props) => {
 
 
     useEffect(()=> {
-        //Compruebo si hay datos de la película escogida en redux, en caso de NO
-        //haber datos, redirijo a HOME.
+
 
         if(props.search?.title === undefined){
             navigate("/");
@@ -29,7 +28,6 @@ const MovieDetail = (props) => {
                     <div className="dataFilm">{props.search?.synopsis}</div>
                     <div className="dataFilm">
                         {
-                            //EN CASO DE QUE TOKEN SEA TRUE, SI SE INCLUYE EL ELEMENTO RENT
                             props.credentials.token && <Rent id={props.search.id} token={props.credentials.token} userId={props.credentials.user.id}/>
                         }
                     </div>

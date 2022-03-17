@@ -1,8 +1,12 @@
 .designRegister {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
+    background-image: url(../../img/backgroundRegister.jpg);
+    background-size: cover;
+
+    padding-left: 50em;
 
     height: 74vh;
     width: 100vw;
@@ -11,7 +15,7 @@
 .cardRegister {
 
     height: 30em;
-    width: 50em;
+    width: 40em;
 
     background-color: lightcoral;
 

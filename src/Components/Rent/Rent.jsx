@@ -14,14 +14,6 @@ const Rent = (props) => {
         movieId: props.id, userId: props.userId, rentingDate: "", returnDate: ""
     });
 
-    useEffect(()=>{
-       
-    },[]);
-
-    useEffect((props)=>{
-        console.log("vaya, , orders ha cambiado, ", newOrder);
-    },[newOrder]);
-
     //Handler (manejador)
     const inputData = (e) => {
         setNewOrder({...newOrder, 
@@ -31,7 +23,6 @@ const Rent = (props) => {
     const alquilar = async () => {
         
         let body = {
-            //este body corresponde al body de pedido de postman
             movieId: props.id,
             userId: props.userId,
             rentingDate: newOrder.rentingDate,

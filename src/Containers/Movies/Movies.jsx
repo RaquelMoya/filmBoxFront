@@ -17,12 +17,6 @@ const Movies = (props) => {
         getMovies();
     },[]);
 
-    //useEffect custom para el hook films
-
-    useEffect(()=>{
-        console.log("vaya, , movies ha cambiado, ", movies);
-    },[movies]);
-
     const getMovies = async () => {
 
         try {
@@ -53,15 +47,11 @@ const Movies = (props) => {
             <div className="designRooster">
 
                 {
-                    //Voy a mapear las películas
+                    
                     movies.map(film => {
-                        //a cada elemento que voy a mapear
-                        //le brindo un KEY (obligatorio) que lo distinguirá de
-                        //el resto de elementos
+                      
                         return (
-                            //Al mapear, cada elemento que se itera del array (en este caso pelicula es ese elemento),
-                            //si le hacemos propiedad onclick y pasamos el elemento como argumento,
-                            //a esa funcion le va a llegar el objeto que hayamos clickado entero
+        
                             <div key={film.id} onClick={()=>chooseMovie(film)}>
                                 <img src={film.image} alt={film.title}/>
                             </div>

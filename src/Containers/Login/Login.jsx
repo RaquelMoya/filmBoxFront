@@ -1,5 +1,5 @@
 
-import React, {useState, useEffect} from 'react';
+import React, {useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -33,7 +33,6 @@ const Login = (props) => {
 
         try {
 
-            //Introducimos las credenciales
             let body = {
                  email: datosUsuario.email,
                  password: datosUsuario.password
@@ -45,14 +44,13 @@ const Login = (props) => {
                 setMsgError2("Usuario o contraseña inválido")
             }else{
 
-                //Guardamos los datos en redux
 
                 props.dispatch({type:LOGIN, payload: resultado.data});
 
 
                 setTimeout(()=>{
                     navigate("/");
-                },1500);
+                },1000);
             }
 
 
@@ -66,11 +64,11 @@ const Login = (props) => {
     };
 
     //Render 
-         
+         //    {<pre>{JSON.stringify(datosUsuario, null,2)}</pre>}
         return(
             
             <div className='designLogin'>
-                 {<pre>{JSON.stringify(datosUsuario, null,2)}</pre>}
+             
                 <div className="designForm">
                     <input type="email" name="email" id="email" title="email" placeholder="Correo Electrónico" autoComplete="off" onChange={(e)=>{rellenarDatos(e)}}/>
                     <input type="password" name="password" id="password" title="password" placeholder="Contraseña" autoComplete="off" onChange={(e)=>{rellenarDatos(e);}}/>

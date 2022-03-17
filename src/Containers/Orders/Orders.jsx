@@ -29,10 +29,6 @@ const Orders = (props) => {
         }
     });
 
-    useEffect(()=>{
-        console.log("vaya, , orders ha cambiado, ", orders);
-    },[orders]);
-
     const getOrders = async () => {
 
         let id = props.credentials.user.id
