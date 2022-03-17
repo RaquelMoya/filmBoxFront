@@ -46,16 +46,13 @@ const AdminOrders = (props) => {
             console.log(error);
         }
     };
-    const deleteOrder = async () => {
-        let id = orders.id;
-        let body = { id : props.credentials.user.id}
-
-     
+    const deleteOrder = async (id) => {
+        console.log("soy id",id);
         try {
 
         await axios.delete(`http://localhost:3500/orders/${id}`,config);
 
-
+        getOrders()
         }catch (error){
             console.log(error);
         }
@@ -71,10 +68,9 @@ const AdminOrders = (props) => {
                         orders.map((order, index)=> {
                             return(
                                 <div className="delete"key={index}>
-                                        <p>USER ID : {order.userId} </p>
+                                        <p>USER : {order.name} </p>
                                         <p>MOVIE : {order.title} </p>
-                                        <p>MOVIE ID : {order.movieId} </p>
-                                        <div onClick={() => deleteOrder()} className="button1">Delete</div>
+                                        <div onClick={() => deleteOrder(order.id)} className="button1">Delete</div>
                                 </div>)     
                         
                         })
@@ -90,12 +86,8 @@ const AdminOrders = (props) => {
     
  };
 
-/*1.- Cómo mostrar titulo de la pelicula pedida en return del map linea 73 AdminOrders
-2.- Cómo hacer logout con perfil admin y que redirija a Home despues de entrar en Orders
-3.- Cómo entrar en perfil admin sin necesidad de params en la url, para evitar los problemas con urls/:id como deleteById 
-4.- Cómo hacer el searchResults mapeando por cada ev*/
-
 
 export default connect((state)=>({
-    credentials: state.credentials
+    credentials: state.credentials,
+    order: state.order
 }))(AdminOrders);
