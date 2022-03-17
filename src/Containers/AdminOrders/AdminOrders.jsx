@@ -22,10 +22,6 @@ const AdminOrders = (props) => {
         getOrders();
     },[]);
 
-    useEffect(()=>{
-        console.log("estos son los pedidos", orders);
-    },[orders]);
-
 
     const getOrders = async () => {
      
@@ -39,7 +35,7 @@ const AdminOrders = (props) => {
                     setOrders(res.data);
                      
                     props.dispatch({type:GENERATE_ORDER, payload: orders});
-                },1500);
+                },1000);
                 
 
         } catch (error) {
@@ -47,7 +43,7 @@ const AdminOrders = (props) => {
         }
     };
     const deleteOrder = async (id) => {
-        console.log("soy id",id);
+        
         try {
 
         await axios.delete(`http://localhost:3500/orders/${id}`,config);
