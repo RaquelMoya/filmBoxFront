@@ -14,6 +14,8 @@ import MovieDetail from './Containers/MovieDetail/MovieDetail';
 import SearchResults from './Containers/SearchResults/SearchResults';
 import AdminOrders from './Containers/AdminOrders/AdminOrders';
 import AdminUsers from './Containers/AdminUsers/AdminUsers';
+import GenreFilter from './Containers/GenreFilter/GenreFilter';
+
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
           <Route path="/searchresults" element={<SearchResults/>}/>
           <Route path="/adminorders" element={<AdminOrders/>}/>
           <Route path="/adminusers" element={<AdminUsers/>}/>
+          <Route path="/genrefilter" element={<GenreFilter/>}/>
+      
         </Routes>
 
         <Footer/>

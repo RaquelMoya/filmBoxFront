@@ -39,18 +39,19 @@ const Login = (props) => {
             }
 
             let resultado = await axios.post("http://localhost:3500/users/login",body);
-
+            
             if(resultado.data === "Usuario o contraseña inválido"){
                 setMsgError2("Usuario o contraseña inválido")
             }else{
 
 
                 props.dispatch({type:LOGIN, payload: resultado.data});
-
+                   
 
                 setTimeout(()=>{
-                    navigate("/");
-                },1000);
+                  
+                    navigate("/profile");
+                },1500);
             }
 
 
@@ -82,4 +83,6 @@ const Login = (props) => {
 };
 
 
-export default connect()(Login);
+export default connect((state)=>({
+    credentials: state.credentials
+}))(Login);

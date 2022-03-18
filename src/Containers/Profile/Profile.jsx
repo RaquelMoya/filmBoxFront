@@ -9,7 +9,7 @@ import axios from 'axios';
 import './Profile.css';
 
 const Profile = (props) => {
-
+    
     let navigate = useNavigate();
 
     //Hooks
@@ -27,7 +27,7 @@ const Profile = (props) => {
     };
 
     useEffect(()=>{
-        if(props.credentials.token === ""){
+        if(props.credentials?.token === ""){
             navigate("/");
         }
     });
@@ -65,7 +65,7 @@ const Profile = (props) => {
 
     }
 
-    if(props.credentials?.user.rol === true){
+    if(props.credentials.user.rol === true){
         return (
             <div className="designProfile">
                 <div className="designProfileHalf profileLeft">
@@ -90,30 +90,31 @@ const Profile = (props) => {
                 </div>
 
             </div>
-        )} else {
+        )}else {
+            return(
             <div className="designProfile">
-            <div className="designProfileHalf profileLeft">
-                <div className="profileField"><b>Nombre:<input type="text" name="name" id="name" title="name" placeholder={props.credentials.user.name} autoComplete="off" onChange={(e) => { inputData(e) }} />
-                </b></div>
-                <div className="profileField"><b>Apellidos:</b><input type="text" name="surname" id="surname" title="surname" placeholder={props.credentials.user.surname} autoComplete="off" onChange={(e) => { inputData(e) }} />
+                <div className="designProfileHalf profileLeft">
+                    <div className="profileField"><b>Nombre:<input type="text" name="name" id="name" title="name" placeholder={props.credentials.user.name} autoComplete="off" onChange={(e) => { inputData(e) }} />
+                    </b></div>
+                    <div className="profileField"><b>Apellidos:</b><input type="text" name="surname" id="surname" title="surname" placeholder={props.credentials.user.surname} autoComplete="off" onChange={(e) => { inputData(e) }} />
+                    </div>
+                    <div className="profileField"><b>Email:</b><input type="email" name="email" id="email" title="email" placeholder={props.credentials.user.email} autoComplete="off" onChange={(e) => { inputData(e) }} /></div>
+                    <div className="profileField"><b>Teléfono:</b><input type="text" name="phone" id="phone" title="phone" placeholder={props.credentials.user.phone} autoComplete="off" onChange={(e) => { inputData(e) }} />
+                    </div>
+                    <div className="profileField"><b>Direccion:</b><input type="text" name="adress" id="adress" title="adress" placeholder={props.credentials.user.adress} autoComplete="off" onChange={(e) => { inputData(e) }} /></div>
+                    <div className="profileField"><b>Nickname:</b><input type="text" name="nickname" id="nickname" title="nickname" placeholder={props.credentials.user.nickname} autoComplete="off" onChange={(e) => { inputData(e) }} />
+                    </div> 
+                    <div className="updateButton" onClick={()=>updateUser()}>Update</div>
                 </div>
-                <div className="profileField"><b>Email:</b><input type="email" name="email" id="email" title="email" placeholder={props.credentials.user.email} autoComplete="off" onChange={(e) => { inputData(e) }} /></div>
-                <div className="profileField"><b>Teléfono:</b><input type="text" name="phone" id="phone" title="phone" placeholder={props.credentials.user.phone} autoComplete="off" onChange={(e) => { inputData(e) }} />
+
+                <div className="designProfileHalf profileRight">
+
+                    <Button destiny={"Movies"} url={"/movies"}/>
+                    <Button destiny={"Orders"} url={"/adminOrders"}/>
                 </div>
-                <div className="profileField"><b>Direccion:</b><input type="text" name="adress" id="adress" title="adress" placeholder={props.credentials.user.adress} autoComplete="off" onChange={(e) => { inputData(e) }} /></div>
-                <div className="profileField"><b>Nickname:</b><input type="text" name="nickname" id="nickname" title="nickname" placeholder={props.credentials.user.nickname} autoComplete="off" onChange={(e) => { inputData(e) }} />
-                </div> 
-                <div className="updateButton" onClick={()=>updateUser()}>Update</div>
-            </div>
 
-            <div className="designProfileHalf profileRight">
-
-                <Button destiny={"Movies"} url={"/movies"}/>
-                <Button destiny={"Orders"} url={"/adminOrders"}/>
-            </div>
-
-        </div>
-        }
+             </div>
+            )}
 
 
 }               

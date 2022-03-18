@@ -1,7 +1,7 @@
 
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import { LOGOUT, MOVIES_TITLE } from '../../redux/types';
+import { LOGOUT, MOVIES_TITLE, MOVIES_GENRE } from '../../redux/types';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import 'antd/dist/antd.css';
@@ -16,6 +16,7 @@ const Header = (props) => {
 
     let navigate = useNavigate();
     const [titulo, setTitulo] = useState("");
+    const [genero, setGenero] = useState("");
 
 
     const navegar = (lugar) => {
@@ -34,18 +35,36 @@ const Header = (props) => {
             navigate("/");
         },1000);
     }
+    const handler = (ev) => {
+        setGenero(ev.target.value);
+    }
     const manejador = (ev) => {
         setTitulo(ev.target.value);
     }
 
+    const busquedaPorGenero = async () => {
+
+
+        try {
+            let resultados = await axios.get(`http://localhost:3500/genreMovie/genre/${genero}`);
+
+            props.dispatch({type: MOVIES_GENRE, payload: resultados.data});
+
+            setTimeout(()=>{
+                navigate("/genrefilter");
+            },500);
+
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
     const busquedaPorTitulo = async () => {
-    
-        //Axios que trae resultados....
+
 
         try {
             let resultados = await axios.get(`http://localhost:3500/movies/title/${titulo}`);
-            //Guardo en redux los resultados de las películas
-            console.log("esto es resultados.data", resultados.data)
+
             props.dispatch({type: MOVIES_TITLE, payload: resultados.data});
 
             setTimeout(()=>{
@@ -59,7 +78,13 @@ const Header = (props) => {
     }
     if(!props.credentials?.token){
         return (
-            <div className='designHeader'>  
+            <div className='designHeader'>
+                <div className="headerSpace genreDesign">
+                <Input.Group compact>
+                        <Input style={{ width: 'calc(100% - 200px)' }} placeholder="Busca una película por título" onChange={(ev)=>handler(ev)}/>
+                        <Button onClick={()=>busquedaPorGenero()} type="primary">Go!</Button>
+                    </Input.Group>
+                </div>  
                 <div className="headerSpace searchDesign">
                 <Input.Group compact>
                         <Input style={{ width: 'calc(100% - 200px)' }} placeholder="Busca una película por título" onChange={(ev)=>manejador(ev)}/>
@@ -77,7 +102,12 @@ const Header = (props) => {
     }else {
         return (
             <div className='designHeader'>
-                
+                  <div className="headerSpace genreDesign">
+                <Input.Group compact>
+                        <Input style={{ width: 'calc(100% - 200px)' }} placeholder="Busca una película por título" onChange={(ev)=>handler(ev)}/>
+                        <Button onClick={()=>busquedaPorGenero()} type="primary">Go!</Button>
+                    </Input.Group>
+                </div>  
                 <div className="headerSpace searchDesign">
                 <Input.Group compact>
                         <Input style={{ width: 'calc(100% - 200px)' }} placeholder="Busca una película por título" onChange={(ev)=>manejador(ev)}/>

@@ -31,7 +31,7 @@ const Orders = (props) => {
 
     const getOrders = async () => {
 
-        let id = props.credentials.user.id
+        let id = props.credentials.user.id;
 
         try {
 

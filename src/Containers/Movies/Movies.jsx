@@ -52,7 +52,7 @@ const Movies = (props) => {
                       
                         return (
         
-                            <div key={film.id} onClick={()=>chooseMovie(film)}>
+                            <div className="film" key={film.id} onClick={()=>chooseMovie(film)}>
                                 <img src={film.image} alt={film.title}/>
                             </div>
                         )

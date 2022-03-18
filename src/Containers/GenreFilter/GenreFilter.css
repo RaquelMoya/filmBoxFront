@@ -1,0 +1,40 @@
+.Card {
+    width: 10em;
+    height: 15em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-radius: 2em;
+    border-color: grey;
+    background-color: lightgrey;
+    cursor: pointer;
+}
+.container {
+    width: 12em;
+    height: 17em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+.designRooster {
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+
+    height: 74vh;
+    width: 100vw;
+    
+    flex-wrap: wrap;
+
+
+}

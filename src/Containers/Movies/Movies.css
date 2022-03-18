@@ -28,3 +28,6 @@
 .designRooster>*{
     flex-basis: 25%;
 }
+img {
+    cursor: pointer;
+}

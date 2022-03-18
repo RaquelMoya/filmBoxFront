@@ -1,8 +1,9 @@
-import {MOVIE_DETAIL, MOVIES_TITLE} from '../types';
+import {MOVIE_DETAIL, MOVIES_TITLE, MOVIES_GENRE} from '../types';
 
 const initialState = {
     film: {},
-    peliculas: []
+    peliculas: [],
+    genero: []
 };
 
 const busquedaFilmsReducer = (state = initialState, action) => {
@@ -13,6 +14,9 @@ const busquedaFilmsReducer = (state = initialState, action) => {
 
         case MOVIES_TITLE :
             return {...state, peliculas: action.payload};
+        
+        case MOVIES_GENRE :
+            return {...state, genero: action.payload};
 
         default :
             return state

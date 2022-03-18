@@ -15,6 +15,7 @@ const SearchResults = (props) => {
     },[]);
 
       
+  
     const escogePelicula = (pelicula) => {
    
         props.dispatch({type:MOVIE_DETAIL, payload: pelicula});
@@ -22,8 +23,6 @@ const SearchResults = (props) => {
         navigate("/moviedetail");
     }
  
-    
-    
     if(props.pelis[0]?.id !== undefined){
         
         return(
@@ -44,8 +43,7 @@ const SearchResults = (props) => {
                 }
                 
             </div>
-        )
-    }else{
+        )}else{
         return (
             <div className='designHome'>
                 <div className="marginLoader">
@@ -53,7 +51,8 @@ const SearchResults = (props) => {
                 </div>
             </div>
         )
-    }
+    };
+    
 }
 
 export default connect((state) => ({
