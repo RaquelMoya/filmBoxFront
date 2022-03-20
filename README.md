@@ -6,14 +6,29 @@
 
 <hr>
 
-### Sobre el proyecto
+---
+
+- [Sobre el proyecto](#about)   
+
+- [Instrucciones](#instructions)
+
+- [Features](#features)
+
+- [Tecnologías](#tools)
+
+- [Developers](#developers)
+
+---
+<a name="about"></a>
+## Sobre el proyecto
 
 Este proyecto consiste en replicar la parte Frontend de un servicio de alquiler de películas trabajando sobre el Backend que podéis encontrar en el siguiente enlace :
 https://github.com/RaquelMoya/BackMovies 
 
 A continuación encontraréis detallados cada una de las funcionalidades de este proyecto.
 
-### Instrucciones 🔧
+<a name="instructions"></a>
+## Instrucciones 🔧
 
 Dado que hemos deployado el Frontend en AWS, y el backend junto con la BBDD en Heroku, podemos acceder a la app de forma remota con el siguiente enlace:
 https://master.d26c8aov44o1cy.amplifyapp.com
@@ -31,6 +46,7 @@ y ya podríamos acceder a la app sin utilizar el deploy.
 
 A continuación, detallamos todas las funcionalidades que podemos encontrar en la app.
 
+<a name="features"></a>
 ## Features
 
 Cuando iniciamos la app, nos lleva a la vista Home, donde podemos hacer login, o registrarnos. En la barra superior de la pantalla, podremos buscar películas por género o por título, y encontraremos tambien botones de acceso a registro, login o a todas las películas. </br>
@@ -86,7 +102,7 @@ Si clickamos sobre Orders, en la barra superior, podremos ver todos los pedidos 
 
 
 
-
+<a name="tools"></a>
 ## Tecnologías y dependencias utilizadas
 
 <img src="src/img/js.jpg" width="90em"/>
@@ -96,7 +112,7 @@ Si clickamos sobre Orders, en la barra superior, podremos ver todos los pedidos 
 
 <hr>
 
-
+<a name="developers"></a>
 ## Developers ✍️
 
 [Raquel Moya](https://github.com/RaquelMoya)
