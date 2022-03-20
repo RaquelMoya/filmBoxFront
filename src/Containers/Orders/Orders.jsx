@@ -35,7 +35,7 @@ const Orders = (props) => {
 
         try {
 
-            let res = await axios.get(`http://localhost:3500/orders/usuario/${id}`, config);
+            let res = await axios.get(`https://backendfilmbox.herokuapp.com/orders/usuario/${id}`, config);
 
             setTimeout(()=>{
 

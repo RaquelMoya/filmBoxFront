@@ -21,7 +21,7 @@ const Movies = (props) => {
 
         try {
 
-            let res = await axios.get("http://localhost:3500/movies");
+            let res = await axios.get("https://backendfilmbox.herokuapp.com/movies");
 
             setTimeout(()=>{
 

@@ -27,7 +27,7 @@ const AdminOrders = (props) => {
      
         try {
 
-            let res = await axios.get(`http://localhost:3500/orders`, config);
+            let res = await axios.get(`https://backendfilmbox.herokuapp.com/orders`, config);
             console.log(res.data);
                 setOrders(res.data);
                 setTimeout(()=>{
@@ -46,7 +46,7 @@ const AdminOrders = (props) => {
         
         try {
 
-        await axios.delete(`http://localhost:3500/orders/${id}`,config);
+        await axios.delete(`https://backendfilmbox.herokuapp.com/orders/${id}`,config);
 
         getOrders()
         }catch (error){

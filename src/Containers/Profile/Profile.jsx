@@ -50,7 +50,7 @@ const Profile = (props) => {
 
         try {
             
-            let res = await axios.put(`http://localhost:3500/users/${props.credentials.user.id}`,body, config);
+            let res = await axios.put(`https://backendfilmbox.herokuapp.com/users/${props.credentials.user.id}`,body, config);
 
             
             

@@ -3,8 +3,7 @@ import React, {useEffect} from 'react';
 import { connect } from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import Rent from '../../Components/Rent/Rent';
-import axios from 'axios';
-import { MOVIES_TITLE } from '../../redux/types';
+
 
 
 import './MovieDetail.css';

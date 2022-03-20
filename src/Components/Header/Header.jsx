@@ -46,7 +46,7 @@ const Header = (props) => {
 
 
         try {
-            let resultados = await axios.get(`http://localhost:3500/genreMovie/genre/${genero}`);
+            let resultados = await axios.get(`https://backendfilmbox.herokuapp.com/genreMovie/genre/${genero}`);
 
             props.dispatch({type: MOVIES_GENRE, payload: resultados.data});
 
@@ -63,7 +63,7 @@ const Header = (props) => {
 
 
         try {
-            let resultados = await axios.get(`http://localhost:3500/movies/title/${titulo}`);
+            let resultados = await axios.get(`https://backendfilmbox.herokuapp.com/movies/title/${titulo}`);
 
             props.dispatch({type: MOVIES_TITLE, payload: resultados.data});
 

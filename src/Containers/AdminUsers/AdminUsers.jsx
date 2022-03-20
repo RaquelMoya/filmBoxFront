@@ -26,7 +26,7 @@ const AdminUsers = (props) => {
      
         try {
 
-            let res = await axios.get(`http://localhost:3500/users`, config);
+            let res = await axios.get(`https://backendfilmbox.herokuapp.com/users`, config);
             console.log(res.data);
 
                     setUsers(res.data);
@@ -39,7 +39,7 @@ const AdminUsers = (props) => {
         
         try {
 
-        await axios.delete(`http://localhost:3500/users/delete/${id}`,config);
+        await axios.delete(`https://backendfilmbox.herokuapp.com/users/delete/${id}`,config);
 
         getUsers()
         }catch (error){

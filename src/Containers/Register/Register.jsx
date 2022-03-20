@@ -68,7 +68,7 @@ const Register = () => {
 
         try {
             
-            let resultado = await axios.post("http://localhost:3500/users", body);
+            let resultado = await axios.post("https://backendfilmbox.herokuapp.com/users", body);
             console.log(resultado);
             
                 setTimeout(()=>{
