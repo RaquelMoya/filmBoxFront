@@ -85,7 +85,6 @@ const Profile = (props) => {
                 <div className="designProfileHalf profileRight">
 
                     <Button destiny={"Movies"} url={"/movies"}/>
-                    <Button destiny={"Orders"} url={"/adminOrders"}/>
                     <Button destiny={"Users"} url={"/adminUsers"}/>
                 </div>
 

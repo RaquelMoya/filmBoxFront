@@ -81,7 +81,7 @@ const Header = (props) => {
             <div className='designHeader'>
                 <div className="headerSpace genreDesign">
                 <Input.Group compact>
-                        <Input style={{ width: 'calc(100% - 200px)' }} placeholder="Busca una película por título" onChange={(ev)=>handler(ev)}/>
+                        <Input style={{ width: 'calc(100% - 200px)' }} placeholder="Busca una película por género" onChange={(ev)=>handler(ev)}/>
                         <Button onClick={()=>busquedaPorGenero()} type="primary">Go!</Button>
                     </Input.Group>
                 </div>  
@@ -104,7 +104,7 @@ const Header = (props) => {
             <div className='designHeader'>
                   <div className="headerSpace genreDesign">
                 <Input.Group compact>
-                        <Input style={{ width: 'calc(100% - 200px)' }} placeholder="Busca una película por título" onChange={(ev)=>handler(ev)}/>
+                        <Input style={{ width: 'calc(100% - 200px)' }} placeholder="Busca una película por género" onChange={(ev)=>handler(ev)}/>
                         <Button onClick={()=>busquedaPorGenero()} type="primary">Go!</Button>
                     </Input.Group>
                 </div>  
