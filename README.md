@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+## FRONTEND FILMBOX
+![Hola](src/img/Hello.gif)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+:wave: Soy Raquel Moya.</br>
+:computer: Soy una estudiante de FSD en <kbd>⇥</kbd> <img src="src//img/GHA.png" width="130em" /></br>
 
-## Available Scripts
+<hr>
 
-In the project directory, you can run:
+### Sobre el proyecto
 
-### `npm start`
+Este proyecto consiste en replicar la parte Frontend de un servicio de alquiler de películas trabajando sobre el Backend que podéis encontrar en el siguiente enlace :
+https://github.com/RaquelMoya/BackMovies 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+A continuación encontraréis detallados cada una de las funcionalidades de este proyecto.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Instrucciones 🔧
 
-### `npm test`
+Dado que hemos deployado el Frontend en AWS, y el backend junto con la BBDD en Heroku, podemos acceder a la app de forma remota con el siguiente enlace:
+https://master.d26c8aov44o1cy.amplifyapp.com
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Si por el contrario, queremos acceder a la app de manera local, deberíamos seguir las instrucciones de instalación local del backend plasmadas en el readme del proyecto en https://github.com/RaquelMoya/BackMovies y, posteriormente, clonar este repositorio localmente.
+una vez clonado, deberemos instalar las dependencias no incluidas por el archivo .gitignore:
 
-### `npm run build`
+### `npm i`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Posteriormente, deberíamos modificar la raíz existente en cada endpoint en Components y Containers, para trabajar a nivel local. Dado que en el backend tenemos establecido el PORT = 3500 si trabajamos en local, deberemos modificar todas las raices de los endponts a http://localhost:3500/ en lugar de https://backendfilmbox.herokuapp.com/ 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run dev` ó `npm start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+y ya podríamos acceder a la app sin utilizar el deploy. 
 
-### `npm run eject`
+A continuación, detallamos todas las funcionalidades que podemos encontrar en la app.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Features
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Cuando iniciamos la app, nos lleva a la vista Home, donde podemos hacer login, o registrarnos. En la barra superior de la pantalla, podremos buscar películas por género o por título, y encontraremos tambien botones de acceso a registro, login o a todas las películas. </br>
+<img src="src/img/Home.jpg" width="1500">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Para registrarnos, debemos clickar sobre register y nos redirigirá a la vista de registro, donde podremos introducir nuestros datos para crear un usuario. Los campos a rellenar tienen un pequeño control de expresiones que nos avisará si no se han rellenado correctamente dichos campos. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<img src="src/img/Register.jpg" width="1500">
 
-## Learn More
+Una vez nos hemos registrado, nos redirigirá a la vista de Login, donde deberemos introducir nuestro email y nuestro password con los que nos hemos registrado previamente. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img src="src/img/Login.jpg" width="1500">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Al registrarnos, nos redirigirá a la vista de Profile, donde podremos modificar nuestros datos de usuario, ver los pedidos (Orders) que tenemos realizados, o ver las películas existentes. También veremos como en la barra superior aparece un botón con el nombre de usuario desde el que podremos volver a nuestro Profile, un botón para hacer Logout y volver a Home, y otro para acceder a nuestros pedidos.
 
-### Code Splitting
+<img src="src/img/ProfileUser.jpg" width="1500">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Para realizar un pedido nuevo, clickamos en el botón Movies y nos redirige a la vista de Movies. 
 
-### Analyzing the Bundle Size
+<img src="src/img/Movies.jpg" width="1500">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Podemos clickar sobre una de las películas y ver los detalles. También podremos introducir la fecha en la que queremos alquilar la película y la fecha en la que queremos devolverla, y clickar en alquilar para realizar el pedido.
 
-### Making a Progressive Web App
+En caso de acceder a Movies y clickar sobre una película sin estar logueado, no aparecerían las fechas ni la opción de alquilar una película. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<img src="src/img/MovieDetails.jpg" width="1500">
 
-### Advanced Configuration
+Al alquilarla, nos redirigirá a la vista de Orders, donde aparecerán los títulos de los pedidos que tenemos realizados.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<img src="src/img/OrdersUser.jpg" width="1500">
 
-### Deployment
+Si queremos buscar películas según el género que tengan asignado, podemos introducir en la barra de búsqueda correspondiente un género y ver los resultados. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<img src="src/img/Genre.jpg" width="1500">
 
-### `npm run build` fails to minify
+En caso de que quisiéramos buscar alguna película por título, podríamos introducirlo en la barra de búsqueda correspondiente y ver los resultados. En este caso, podríamos clickar sobre el resultado y nos llevaría a la vista de detalle de la película. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img src="src/img/Titulo.jpg" width="1500">
+
+Si somos el perfil de Administrador, y queremos acceder a ciertas áreas a las que no tenemos acceso como usuario, debemos loguearnos con el email y el password del Administrador. En este caso nos redirigirá al Profile del Administrador. 
+
+En nuestro Profile tendremos acceso a todos los usuarios clickando en Users. 
+
+<img src="src/img/ProfileAdmin.jpg" width="1500">
+
+En la vista Users podremos ver a todos los usuarios registrados y eliminarlos.
+
+<img src="src/img/UsersAdmin.jpg" width="1500">
+
+Si clickamos sobre Orders, en la barra superior, podremos ver todos los pedidos realizados por todos los usuarios, y borrarlos. 
+
+<img src="src/img/OrdersAdmin.jpg" width="1500">
+
+
+
+
+## Tecnologías y dependencias utilizadas
+
+<img src="src/img/js.jpg" width="90em"/>
+<img src="src/img/github.png" width="90em"/><img src="src/img/react.png" width="90em"/><img src="src/img/redux.png" width="90em"/><img src="src/img/ant-design.jpg" width="90em"/><img src="src/img/aws.png" width="90em"/><img src="src/img/heroku.png" width="90em"/>
+</br>
+
+
+<hr>
+
+
+## Developers ✍️
+
+[Raquel Moya](https://github.com/RaquelMoya)
+
+Última edición: 20/03/2022

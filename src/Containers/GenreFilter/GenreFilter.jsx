@@ -1,15 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { MOVIE_DETAIL} from '../../redux/types';
-import axios from 'axios';
+
 
 
 import './GenreFilter.css';
 
 const GenreFilter = (props) => {
 
-    const [genres, setGenres] = useState([]);
     let navigate = useNavigate();
 
     useEffect(()=>{
@@ -18,14 +16,6 @@ const GenreFilter = (props) => {
   
     },[]);
 
- 
-      
-    const escogePelicula = (pelicula) => {
-   
-        props.dispatch({type:MOVIE_DETAIL, payload: pelicula});
-
-        navigate("/searchresults");
-    }
     
     if(props.generos[0]?.name !== ""){
         
@@ -39,7 +29,7 @@ const GenreFilter = (props) => {
                         
                         return (
                             <div className="container">
-                                <div className="Card" key={genero.id} onClick={()=>escogePelicula(genero)}>
+                                <div className="Card" key={genero.id}>
                                     <p>Genero: {genero.name}</p>
                                     <p>Pelicula: {genero.title}</p>
                                 </div>
