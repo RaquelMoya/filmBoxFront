@@ -1,6 +1,6 @@
 .Card {
-    width: 10em;
-    height: 15em;
+    width: 15em;
+    height: 12em;
 
     display: flex;
     flex-direction: column;
@@ -14,8 +14,12 @@
 }
 
 p {
-    width: 8em;
-    height: 12em;
+    width: 10em;
+    height: 8em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .container {
     width: 12em;
