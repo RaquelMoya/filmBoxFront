@@ -20,6 +20,11 @@ const AdminUsers = (props) => {
     useEffect(()=>{
         getUsers();
     },[]);
+    useEffect(()=>{
+        if(props.credentials?.token === "" && props.credentials?.user.rol !== true){
+            navigate("/");
+        }
+    });
 
 
     const getUsers = async () => {

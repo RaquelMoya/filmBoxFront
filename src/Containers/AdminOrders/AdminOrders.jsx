@@ -22,6 +22,11 @@ const AdminOrders = (props) => {
         getOrders();
     },[]);
 
+    useEffect(()=>{
+        if(props.credentials?.token === "" && props.credentials?.user.rol !== true){
+            navigate("/");
+        }
+    });
 
     const getOrders = async () => {
      
