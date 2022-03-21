@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import './AdminUsers.css';
 
 const AdminUsers = (props) => {
 
+    let navigate = useNavigate();
     //Hooks
     const [users, setUsers] = useState([]);
 
@@ -21,7 +23,7 @@ const AdminUsers = (props) => {
         getUsers();
     },[]);
     useEffect(()=>{
-        if(props.credentials?.token === ""){
+        if(props.credentials?.token === "" && props.credentials?.user.rol !== true){
             navigate("/");
         }
     });

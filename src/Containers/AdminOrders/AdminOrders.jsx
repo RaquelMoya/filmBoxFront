@@ -2,10 +2,13 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import { GENERATE_ORDER } from '../../redux/types';
+import { useNavigate } from 'react-router-dom';
 
 import './AdminOrders.css';
 
 const AdminOrders = (props) => {
+
+    let navigate = useNavigate();
 
     //Hooks
     const [orders, setOrders] = useState([]);
@@ -23,7 +26,7 @@ const AdminOrders = (props) => {
     },[]);
 
     useEffect(()=>{
-        if(props.credentials?.token === ""){
+        if(props.credentials?.token === "" && props.credentials?.user.rol !== true){
             navigate("/");
         }
     });
