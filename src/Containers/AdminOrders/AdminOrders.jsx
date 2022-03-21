@@ -23,7 +23,7 @@ const AdminOrders = (props) => {
     },[]);
 
     useEffect(()=>{
-        if(props.credentials?.token === "" && props.credentials?.user.rol !== true){
+        if(props.credentials?.token === ""){
             navigate("/");
         }
     });
