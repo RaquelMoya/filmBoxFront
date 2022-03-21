@@ -10,7 +10,7 @@ const AdminOrders = (props) => {
     //Hooks
     const [orders, setOrders] = useState([]);
 
-      //CREAMOS LA CONFIGURACIÓN DEL HEADER QUE SE VA A MANDAR
+
       let config = {
         headers: { Authorization: `Bearer ${props.credentials.token}` }
     };
