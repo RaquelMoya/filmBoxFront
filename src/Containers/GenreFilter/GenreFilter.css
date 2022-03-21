@@ -10,7 +10,12 @@
     border-radius: 2em;
     border-color: grey;
     background-color: lightgrey;
-    cursor: pointer;
+    
+}
+
+p {
+    width: 8em;
+    height: 12em;
 }
 .container {
     width: 12em;
@@ -22,7 +27,6 @@
     justify-content: center;
 
 }
-
 
 
 .designRooster {
