@@ -117,4 +117,4 @@ Si clickamos sobre Orders, en la barra superior, podremos ver todos los pedidos 
 
 [Raquel Moya](https://github.com/RaquelMoya)
 
-Última edición: 20/03/2022
+Última edición: 24/03/2022
